@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -27,18 +28,16 @@ public class ExercicioTest {
 
         // Clicar no botão Sign Up
         navegador.findElement(By.xpath("/html/body/div[2]/div/div/form/button")).click();
+
+        String fullpage = navegador.getPageSource();
+        String str = "You logged into a secure area!";
+        Assert.assertTrue(fullpage.contains(str));
         
     }
 
     @AfterTest
     public void tearDown(){
         // Saindo do navegador
-        String fullpage = navegador.getPageSource();
-        String str = "You logged into a secure area!";
-        if (fullpage.contains(str)){
-            System.out.println("Mensagem esta visivel na tela!");
-            navegador.quit();
-        }
-        
+        navegador.quit();   
     }
 }
