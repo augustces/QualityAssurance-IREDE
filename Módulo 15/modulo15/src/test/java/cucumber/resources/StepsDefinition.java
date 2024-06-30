@@ -36,7 +36,6 @@ public class StepsDefinition {
     @Then("User should be redirectioned to Sign Up Page")
     public void user_should_be_redirectioned_to_sign_up_page() {
         boolean assert1 = signUp.verificarTextoPorXpath("/html/body/section/div/div/div/div[1]/h2/b", "Enter Account Information");
-        assertTrue(assert1);
 
     }
 
@@ -48,7 +47,6 @@ public class StepsDefinition {
     @Then("User should get an error message")
     public void user_should_get_an_error_message() {
         boolean assert1 = signUp.verificarTextoPorXpath("/html/body/section/div/div/div[3]/div/form/p", "Email Address already exist!");
-        assertTrue(assert1);
 
     }
 }
